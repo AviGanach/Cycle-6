@@ -48,5 +48,4 @@ class BankAccount:
 
 
 ba=BankAccount("yaakov", 1234)
-ba.withdraw(100)
 print (ba)
