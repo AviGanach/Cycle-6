@@ -1,51 +1,40 @@
 class BankAccount:
-    def __init__ (self, name:str , account_num:int):
-        self._name = name
-        self._account_num = account_num
-        self._balance = 0
+    def __init__(self, name, account_no):
+        self.__name = name
+        self.__account_no = account_no
+        self.__balance = 0
 
-    @property  
+    @property
     def name(self):
-        return self._name
-    
+        return self.__name
     @name.setter
-    def name (self, name):
-        self._name = name
+    def name(self,name):
+        self.__name = name
 
-        
-    @property 
-    def account_num(self):
-        return self._account_num
-    
-    @account_num.setter
-    def account_num(self, account_number):
-        self._account_num = account_number
-        
-    
-    @property  
+    @property
+    def account_no(self):
+        return self.__account_no
+    @account_no.setter
+    def account_no(self, account_no):
+        self.__account_no = account_no
+
+    @property
     def balance(self):
-        return self._balance
-        
+        return self.__balance
 
     @balance.setter
     def balance(self, balance):
-        self._balance = balance
-    
-
+        self.__balance = balance
 
     def deposit(self, amount):
-        if amount > 0:
-            self._balance += amount
+        self.__balance += amount
 
     def withdraw(self, amount):
-        if amount > 0:
-            if self._balance - amount >= 0:
-                self._balance -= amount
-    
+        if amount < self.__balance:
+            self.__balance -= amount
+        else:
+            self.__balance -= self.__balance
+            print("You don't have enough money")
 
     def __str__(self):
-        return f"account number is: {self._account_num}, your name is: {self._name} and your balance is: {self._balance}"
-
-
-ba=BankAccount("yaakov", 1234)
-print (ba)
+        return f"name holder: {self.__name}, account number {self.__account_no}, balance: {self.__balance}"
